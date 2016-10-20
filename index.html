@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en"class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entertaining Things</title>
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="entertainment-lists.css">
+
+  <script src="external/jquery-3.1.0.min.js"></script>
+  <script src="main.js"></script>
+
+</head>
+<body>
+
+<!--                                                            Modal Window -->
+<!-- ----------------------------------------------------------------------- -->
+
+    <div class="wrapper">
+<div class="modal" id="modal-one">
+  <div class="modal-dialog">
+    <a href="#close" class="btn-close">×</a>
+    <div class="row">
+      <div class="column-11">
+        <h1>Update dataset</h1>
+        <p>
+        This page is a convenient helper to update the entertaining-things dataset. You can update films and series by pasting their IMdB id ("ttXXXXXXX" in the address bar of a film or a TV-show on IMdB) and books by pasting their Babelio id (last numbers in the address bar of a book on Babelio). Click on the button to update with the current item if it is well formated and if it doesn't exist yet. Due to security restrictions in Javascript the most convenient way to write the dataset to a local file is through a download. When your are finished updating the dataset you can download the data to a new file (you have to manually replace the old one). A empty dataset file contains {"films":[], "series":[], "books":[]}.
+        </p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="column-10">
+        <div class="form-group">
+          <input type="text" required="required"/>
+          <label for="input" class="control-label">Films</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+          <input type="text" required="required"/>
+          <label for="input" class="control-label">Series</label><i class="bar"></i>
+        </div>
+        <div class="form-group">
+          <input type="text" required="required"/>
+          <label for="input" class="control-label">Books</label><i class="bar"></i>
+        </div>
+        <div class="row" style="text-align:center;">
+          <button type="button" class="button"><span>Update</span></button>
+          <br><output></output>
+        </div>
+        <div class="row" style="text-align:center;" id="downloadLink"></div>
+      </div>
+    </div>
+    <div class="footer"></div>
+  </div>
+</div>
+</div>
+
+<!--                                                               Main HTML -->
+<!-- ----------------------------------------------------------------------- -->
+
+<div class="wrapper">  
+  <div class="row">
+    <div class="column-12">
+      <h1>Things that I liked</h1>
+      <p>
+        Below you will find lists of films, series and books that I have watched and read and that I liked. I made those lists for my friends as I wanted to share my very favorite. For films and series, I choose to parse the <a href="http://omdbapi.com/" target="_blank">OMDb API</a>. I also recommend <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> by Kevin Wuhoo that allows to visualize the <a href="http://www.imdb.com/">IMDb</a> ratings of tv-shows by episode and therefore gives useful insights into the quality of series throughout time. Movies informations are from their English version but I am sure that you can find them (as I did) in original version. For the books I had trouble finding some books and editions on the <a href="https://books.google.com/" target="_blank">Google-Books</a> API so I use <a href="http://www.babelio.com/" target="_blank">Babelio</a>. When possible, I link google-books pages for English readers.
+      </p>
+      <p>
+        I also wrote a convenient modal form to <a href="#modal-one">update the dataset</a>. In the future, I want to filter the data (genres and year) and to compare two different datasets.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-12">
+      <h2 class="active">Films</h2><h2>Series</h2><h2>Books</h2>
+    <button class="round-button"><img src="redo.svg" style="width:25px;height:25px;"></button>
+        
+      <div class="row plot"></div>
+
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>
+
+<!-- ----------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------------- -->
+
+<script type="text/javascript">
+
+
+  $.getJSON("entertaining_things.json", function(data) {
+
+////////////////////////////////////////////////////////////////////////////////
+///                                                          Main Javascript ///
+////////////////////////////////////////////////////////////////////////////////
+
+  // var data = {"films":["tt4698684", "tt5700672", "tt0227984", "tt0080455", "tt0091763", "tt0405094", "tt0116282", "tt1185616", "tt0365748", "tt0289043", "tt1465522", "tt0418763", "tt0208092", "tt0120735", "tt1032755", "tt0375912", "tt0425210", "tt0780536", "tt0373469", "tt0183649", "tt0460791", "tt0464913", "tt1167660", "tt0109440", "tt0321715", "tt0338828", "tt0456123", "tt0115658", "tt0442207", "tt2853614"],
+  //             "series":["tt0903747", "tt0487831", "tt0262150", "tt4574334", "tt4288182", "tt2802850", "tt0995832", "tt0306414"],
+  //             "books":["40261", "230523", "280646", "398449", "508580", "312445", "373613", "657585", "446402", "495573", "564128"]};
+
+
+    var types = ["films", "series", "books"]
+
+    var typeOnFocus = "films";
+    updateType();
+
+    function updateType() {
+      var container = $(".row.plot");
+      // keep paper plot container height
+      $(".row.plot").css("min-height", $(".row.plot").height());
+      container.html("");
+      var fourItems = shuffle(data[typeOnFocus]).slice(0, 8);
+      for (var i in fourItems) {
+        var queryUrl = "https://cors-anywhere.herokuapp.com/"+fourItems[i].image;
+        // remove "CR" tag to get uncropped images from IMdB
+        queryUrl = queryUrl.replace("CR");
+        container.append('<a target="_blank" href="'+fourItems[i].ref+'"><img class="poster" src="'+queryUrl+'" crossOrigin="Anonymous"></a>');
+      }
+    }
+
+    $("h2").click(function(){
+      $("h2").removeClass("active");
+      typeOnFocus = $(this).text().toLowerCase();
+      $(this).addClass("active");
+      var top = $("h2").offset().top-15;
+      scrollTo(top, 1500);
+      updateType();
+    })
+
+    $(".round-button").click(function(){
+      var top = $("h2").offset().top-15;
+      scrollTo(top, 1000);
+      updateType();
+    })
+
+
+////////////////////////////////////////////////////////////////////////////////
+///                                              Javascript for Modal Window ///
+////////////////////////////////////////////////////////////////////////////////
+
+    function checkItemExistence(data, id) {
+      return data.filter(
+        function(data){if (data.id == id){return data.title;}}
+      );
+    }
+
+    // update button clicked!
+    $(".button").click(function(){
+      // reset output informations
+      $("output").html("")
+      // set-up valid fields array container
+      var queryUrls = [];
+      // iterate the form fields
+      for (i=0; i < $(".form-group")["length"]; i++) {
+        // if a field has a value (else do nothing)
+        if ($(".form-group input")[i].value) {
+          // extract the id the user entered
+          var id = $(".form-group input")[i].value
+          // get the type of id from the field label
+          var type = $(".form-group label")[i].innerHTML;
+          // check if the id already exists in the database
+          var existenceCheck = checkItemExistence(data[type.toLowerCase()], $("input")[i].value);
+          // if it doesn't exits
+          if (existenceCheck.length == 0) {
+            var queryUrl = "";
+            // differenciate films and series that are on IMdB and books that are on Babelio
+            if (type != "Books") {
+              // check if the id is a valid IMdB format
+              if ($("input")[i].value.match(/^tt\d{7}$/)) {
+                // IMDb url for the item id 
+                queryUrl = "http://www.imdb.com/title/"+$("input")[i].value;
+                queryUrls.push("https://cors-anywhere.herokuapp.com/"+queryUrl);
+              } else {
+                $("output").append(type+" input isn't a valid IMdB id</br>");
+                queryUrls.push("");
+              }
+            } else {
+              // check if the id valid is a valid Babelio format
+              if ($("input")[i].value.match(/^\d+$/)) { 
+                // Babelio url for the item id
+                queryUrl = "http://www.babelio.com/livres/*/"+$("input")[i].value;
+                queryUrls.push("https://cors-anywhere.herokuapp.com/"+queryUrl);
+              } else {
+                $("output").append("Books input isn't a valid Babelio id</br>");
+                queryUrls.push("");
+                // return;
+              }
+            }
+            // if queryUrl is defined the current id has the approriate format
+            if (queryUrl) {
+              $.ajax({
+                type: 'GET',
+                datatype: 'text',
+                url: "https://cors-anywhere.herokuapp.com/"+queryUrl,
+                // queryUrl is valid and we have a response from IMdB or Babelio
+                success: function(response) {
+                  // actual index of the field under consideration
+                  var i = queryUrls.indexOf(this.url);
+                  // actual type of data
+                  var type = $(".form-group label")[i].innerHTML.toLowerCase();
+                  // prepare the item
+                  var item = {"id":$(".form-group input")[i].value};
+                  // get the item title
+                  var rawTitle = $(response).filter("meta[property='og:title']").attr("content");
+                  // if we have a valid response
+                  if (rawTitle) {                     
+                    // get the source of the poster image
+                    var imgSrc = $(response).filter("meta[property='og:image']").attr("content");
+                    // get the reference to the IMdB or Babelio webpage
+                    var linkUrl = $(response).filter("meta[property='og:url']").attr("content");
+                    // adapt properties to differences between IMdB and Babelio
+                    if (type != "books") {
+                      // get the actual title of the item
+                      var title = rawTitle.split(" (")[0];
+                      // add year of first diffusion to the item properties
+                      item["year"] = rawTitle.match(/\(.*(\d{4}).*\)/)[1];
+                      // prepare genres keywords
+                      var genres = [];
+                      // get the item genres from the IMdB response
+                      $(".itemprop[itemprop='genre']", $(response)).each(function(){genres.push(this.innerHTML)});
+                      // add it to the item properties
+                      item["genres"] = genres;
+                    } else {
+                        // get the actual title of the item
+                        var title = rawTitle.split(" - ")[0];
+                        // find book author
+                        var rawAuthor = $(".livre_auteurs", $(response)).attr("href");
+                        // add book author to the item properties
+                        item["author"] = rawAuthor.split("/")[2].split("-").join(" ");
+                        // get the item genre keywords
+                        var keywords = $(response).filter("meta[name='keywords']").attr("content");
+                        // add it to the item properties
+                        item["keywords"] = keywords.split(",").slice(0, -1);
+                      }
+                    // update item properties
+                    item["title"] = title;
+                    item["ref"] = linkUrl;
+                    item["image"] = imgSrc;
+                    // add the item to the dataset
+                    data[type].push(item);
+                    // output addition
+                    $("output").append(title+" added to the dataset</br>");
+                    // reconstruct the data file to dowload
+                    downloadFile(data);
+                  } else {
+                      $("output").append("it seems that this book? doesn't exist</br>");
+                  }
+                },
+                error: function() {console.log("ERROR with "+queryUrl);}
+              });
+            }
+          } else {
+            $("output").append(existenceCheck[0].title+" already exists</br>");
+            queryUrls.push("");
+          }
+        } else {
+            queryUrls.push("");
+          }
+      }
+    });
+
+  });
+
+</script>
+</body>
+</html>

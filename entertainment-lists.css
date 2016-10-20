@@ -1,0 +1,70 @@
+
+.poster {
+  padding: 1em;
+  background: white;
+}
+
+.row.plot a:nth-child(7), .row.plot a:nth-child(8) {
+  display: none;
+}
+
+h2 {
+  display: inline-block;
+  padding-right: 0.5em;
+  cursor: pointer;
+  color: #9E9E9E;
+}
+
+h2.active {
+  color: #212121;
+}
+
+.round-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-10px, -10px);
+}
+
+#downloadLink a {
+  font-size: 5em;
+}
+/*///////////////////////////////////////////////////////////////////////////*/
+/*                                                       Responsive Section  */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px) {
+}
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width:481px) {
+  .round-button {
+    position: static;
+    right: 0;
+    transform: translate(5px, 30px);
+  }
+  .poster {
+    width: 50%;
+  }
+}
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px) {
+  .poster {
+    width: 33.33333%;
+  }
+}
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:961px) {
+  .row.plot a:nth-child(7), .row.plot a:nth-child(8) {
+    display: inline;
+  }
+  .poster {
+    width: 25%;
+  }
+}
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+}
+/* hi-res laptops and desktops */
+@media (min-width:1281px) { 
+}
