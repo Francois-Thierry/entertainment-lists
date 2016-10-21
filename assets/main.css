@@ -1,0 +1,479 @@
+/*///////////////////////////////////////////////////////////////////////////*/
+/*                                                           Primary Styles  */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    color: #212121;
+    background-color: #F5F5F5;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+    -webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+    }
+
+img {
+/*    width: 100%;
+    height: auto !important;*/
+    max-width:100%;
+max-height:100%;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.wrapper:after,
+.row:after {
+      content: "";
+      display: table;
+      clear: both;
+
+      }
+     
+[class*='column-'] {
+    /*float: left;*/
+    position: relative;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+    /*margin-bottom: 1em;*/
+    text-align: justify;
+    margin: 0 auto;
+    }
+
+a {
+    text-decoration: none;
+    color: #212121;
+    font-weight: bold;
+    outline: none;
+}
+
+p { 
+    /*float: left;*/
+    font-family: "adobe-caslon-pro", georgia, serif;
+    font-size: 0.9em;
+    line-height: 1.2;
+    margin-bottom: 1.2em;
+}
+
+h1 {
+    font-family: "PT Sans", sans-serif;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+h2 {
+    font-family: "PT Sans", sans-serif;
+    /*margin-top: 1em;*/
+    font-size: 1.4em;
+}
+
+h3 {
+  font-family: "PT Sans", sans-serif;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.1em;
+}
+
+.row.plot {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-bottom: 0.8em;
+    margin-top: 1em;
+    width: 100%;
+}
+
+.row.plot > * {
+    /*float: left;*/
+    background-color: white;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.row.plot p {
+    background-color: white;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.round-button{
+  float: right;
+  transform: translate(-10px, 30px);
+  z-index: 1;
+  width:40px;
+  height:40px;
+  border-radius:100%;
+  background:#F5F5F5;
+  border:none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor:pointer;
+  outline: none;
+  line-height: 0;
+}
+
+@keyframes ripple-animation {
+    from {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+    }
+}
+
+.header, .footer {
+  min-height: 2em;
+}
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/*                                                  Material Design Formular */
+/*                                     http://codepen.io/jonnitto/pen/OVmvPB */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+/*fieldset {
+  margin: 0 0 2em;
+  padding: 0;
+  border: none;
+}*/
+
+.form-group {
+  position: relative;
+  margin: 2.25em auto;
+}
+
+.form-inline > .form-group,
+.form-inline > .btn {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.form-group input {
+  /*height: 1.9rem;*/
+}
+.form-group textarea {
+  resize: none;
+}
+.form-group select {
+  width: 100%;
+  /*font-size: 2em;*/
+  /*height: 1.6rem;*/
+  padding: 0.125rem 0.125rem 0.0625rem;
+  background: none;
+  border: none;
+  /*line-height: 1.6;*/
+  box-shadow: none;
+}
+.form-group .control-label {
+  position: absolute;
+  bottom: 0.25rem;
+  background: transparent;
+  pointer-events: none;
+  padding-left: 0.125rem;
+  z-index: 1;
+  color: #212121;
+  font-size: 1.5em;
+  /*font-weight: normal;*/
+  font-weight: bold;
+  -webkit-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+}
+.form-group .bar {
+  position: relative;
+  border-bottom: 0.0625rem solid #999;
+  display: block;
+}
+.form-group .bar::before {
+  content: '';
+  height: 0.125rem;
+  width: 0;
+  left: 50%;
+  bottom: -0.0625rem;
+  position: absolute;
+  background: #212121;
+  -webkit-transition: left 0.28s ease, width 0.28s ease;
+  transition: left 0.28s ease, width 0.28s ease;
+  z-index: 2;
+}
+.form-group input,
+.form-group textarea {
+  display: block;
+  background: none;
+  padding: 0;
+  /*font-size: 1rem;*/
+  border-width: 0;
+  border-color: transparent;
+  line-height: 2em;
+  width: 100%;
+  color: transparent;
+  -webkit-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+  box-shadow: none;
+}
+.form-group input[type="file"] {
+  line-height: 1;
+}
+.form-group input[type="file"] ~ .bar {
+  display: none;
+}
+.form-group select,
+.form-group input:focus,
+.form-group input:valid,
+.form-group input.form-file,
+.form-group input.has-value,
+.form-group textarea:focus,
+.form-group textarea:valid,
+.form-group textarea.form-file,
+.form-group textarea.has-value {
+  font-weight: bold;
+  color: #212121;
+  font-size: 1.5em;
+}
+.form-group select,
+.form-group input:focus{
+  font-weight: normal;
+}
+.form-group select ~ .control-label,
+.form-group input:focus ~ .control-label,
+.form-group input:valid ~ .control-label,
+.form-group input.form-file ~ .control-label,
+.form-group input.has-value ~ .control-label,
+.form-group textarea:focus ~ .control-label,
+.form-group textarea:valid ~ .control-label,
+.form-group textarea.form-file ~ .control-label,
+.form-group textarea.has-value ~ .control-label {
+  font-size: 1em;
+  /*color: #212121;*/
+  font-weight: normal;
+  top: -1rem;
+  left: 0;
+}
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+}
+.form-group select:focus ~ .control-label,
+.form-group input:focus ~ .control-label,
+.form-group textarea:focus ~ .control-label {
+  color: #212121;
+  font-weight: bold;
+}
+.form-group select:focus ~ .bar::before,
+.form-group input:focus ~ .bar::before,
+.form-group textarea:focus ~ .bar::before {
+  width: 100%;
+  left: 0;
+}
+
+.button {
+  position: relative;
+  background: currentColor;
+  border: 1px solid currentColor;
+  font-size: 1.1rem;
+  color: #4f93ce;
+  margin: 3rem 0;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+  transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.button span {
+  color: #fff;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+.button::before {
+  content: '';
+  position: absolute;
+  background: #071017;
+  border: 50vh solid #1d4567;
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  display: block;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+.button:hover {
+  color: #337ab7;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/*                                                     Pure CSS Modal Window */
+/*                                     https://codepen.io/maccadb7/pen/nbHEg */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+.btn-close {
+  color: #aaaaaa;
+  font-size: 30px;
+  text-decoration: none;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  z-index: 12;
+}
+.btn-close:hover {
+  color: #919191;
+}
+.modal:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+}
+.modal {
+  position: relative;
+}
+.modal:target:before {
+  visibility: visible;
+  opacity: 1;
+}
+.modal:target .modal-dialog {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  top: 1em;
+  /*left: 1em;*/
+  /*overflow: auto;*/
+  /*margin-right: -100px;*/
+  /*padding-right: -100px;*/
+}
+.modal-dialog {
+  background: #F5F5F5;
+  border: #333333 solid 1px;
+  border-radius: 5px;
+  /*padding-right: 5em;*/
+  position: absolute !important;
+  /*left: 50%;*/
+  /*margin: 0 auto;*/
+  top: -100%;
+  z-index: 11;
+  /*width: 90%;*/
+  max-width: 1281px;
+  /*max-width: calc(100vw - 3em);*/
+  /*max-height: calc(100vh - 2em);*/
+  /*overflow-y: auto;*/
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+
+}
+/*ADDED TO STOP SCROLLING TO TOP*/
+#close {
+  display: none;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/*                                                       Responsive Section  */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px) { 
+  h1 {font-size: 1.6em;}
+  h2 {font-size: 1.5em;}
+  i {
+    font-size: 1.1em;
+  }
+  p {
+    font-size: 1em;
+  }
+}
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width:481px) { 
+  .column-1 { width: 8.33333%; }
+  .column-2 { width: 16.66667%; }   
+  .column-3 { width: 25%; }   
+  .column-4 { width: 33.33333%; }   
+  .column-5 { width: 41.66667%; }   
+  .column-6 { width: 50%; }   
+  .column-7 { width: 58.33333%; }   
+  .column-8 { width: 66.66667%; }   
+  .column-9 { width: 75%; }   
+  .column-10 { width: 83.33333%; }   
+  .column-11 { width: 91.66667%; }   
+  .column-12 { width: 100%; }
+  .wrapper {
+    width: 95%;
+    max-width: 1025px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {font-size: 1.8em;}
+  i {
+    font-size: 1.3em;
+  }
+  p {
+    font-size: 1.1em;
+  }
+  .header, .footer {
+    min-height: 4em;
+  }
+}
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px) { 
+  h1 {
+    font-size: 2.2em;
+  }
+  h3 {
+    font-size: 1.3em;
+  }
+  .header, .footer {
+    min-height: 5em;
+  }
+}
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:961px) {
+  h3 {
+    font-size: 1.4em;
+  }
+}
+/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) {
+  h1 {
+    font-size: 2.4em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+
+}
+/* hi-res laptops and desktops */
+@media (min-width:1281px) { 
+}
