@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="entertainment-lists.css">
 
   <script src="../assets/external/jquery-3.1.0.min.js"></script>
-  <script src="../assets/main.js"></script>
 
 </head>
 <body>
@@ -22,10 +21,16 @@
   <div class="modal-dialog">
     <a href="#close" class="btn-close">×</a>
     <div class="row">
-      <div class="column-11">
-        <h1>Update dataset</h1>
+      <div class="column-11 ENG">
+        <h1 style="margin-top:1.5em;">Update dataset</h1>
         <p>
-        This page is a convenient helper to update the entertaining-things dataset. You can update films and series by pasting their IMdB id ("ttXXXXXXX" in the address bar of a film or a TV-show on IMdB) and books by pasting their Babelio id (last numbers in the address bar of a book on Babelio). Click on the button to update with the current item if it is well formated and if it doesn't exist yet. Due to security restrictions in Javascript the most convenient way to write the dataset to a local file is through a download. When your are finished updating the dataset you can download the data to a new file (you have to manually replace the old one). A empty dataset file contains {"films":[], "series":[], "books":[]}.
+        This page is a convenient helper to update the entertaining-things dataset. You can update films and series by pasting their IMdB id ("ttXXXXXXX" in the address bar of a film or a TV-show on IMdB) and books by pasting their Babelio id (last numbers in the address bar of a book on Babelio). Click on the button to update with the current item if it is well formated and if it doesn't exist yet. Due to security restrictions in Javascript the most convenient way to write the dataset to a local file is through a download. When your are finished updating the dataset you can download the data to a new file (you have to manually replace the old one). A empty dataset file contains the text {"films":[], "series":[], "books":[]}.
+        </p>
+      </div>
+      <div class="column-11 FR">
+        <h1 style="margin-top:1.5em;">Ajoutez aux listes</h1>
+        <p>
+        Ce formulaire permet d'ajouter des éléments à la base de données de divertissement. Il vous suffit de rentrer les identifiants IMdB ("ttXXXXXXX" dans la barre d'adresse d'un film ou d'une série sur IMdB) ou le numéro Babelio (derniers chiffres dans la barre d'adresse d'un livre sur Babelio) dans les champs correspondant. Cliquez sur le boutton pour mettre à jour le fichier de la base de données si les identifiants ont le bon format et si ils ne sont pas déjà dans la base de données. A cause de restrictions de sécurité en Javascript, la manière la plus simple de mettre à jour la base de données est de télécharger le nouveau fichier et remplacer l'ancien à la main. Un fichier vide contient le texte {"films":[], "series":[], "books":[]}.
         </p>
       </div>
     </div>
@@ -58,21 +63,32 @@
 <!--                                                               Main HTML -->
 <!-- ----------------------------------------------------------------------- -->
 
-<div class="wrapper">  
+<div class="wrapper"> 
+  <div class="header"></div>
   <div class="row">
-    <div class="column-12">
+    <div class="column-12 ENG">
       <h1>Things that I liked</h1>
       <p>
-        Below you will find lists of films, series and books that I have watched and read and that I liked. I made those lists for my friends as I wanted to share my very favorite. For films and series, I choose to parse the <a href="http://omdbapi.com/" target="_blank">OMDb API</a>. I also recommend <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> by Kevin Wuhoo that allows to visualize the <a href="http://www.imdb.com/">IMDb</a> ratings of tv-shows by episode and therefore gives useful insights into the quality of series throughout time. Movies informations are from their English version but I am sure that you can find them (as I did) in original version. For the books I had trouble finding some books and editions on the <a href="https://books.google.com/" target="_blank">Google-Books</a> API so I use <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
+        Below you will find lists of films, series and books that I have watched and read and that I liked. I made those lists for my friends as I wanted to share my very favorite. For films and series, I choose to parse <a href="http://www.imdb.com/">IMDb</a>. I also recommend <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> by Kevin Wuhoo that allows to visualize the IMDb ratings of tv-shows by episode and therefore gives useful insights into the quality of series throughout time. Movies informations are from their English version but I am sure that you can find them (as I did) in original version. For the books I had trouble finding some books and editions on the <a href="https://books.google.com/" target="_blank">Google-Books</a> API so I use <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
       </p>
       <p>
         I also wrote a convenient modal form to <a href="#modal-one">update the dataset</a>. This web page can be downloaded and used as an database application. In the future, I want to filter and export the data (genres and year) and to compare two different datasets to highlight differences.
       </p>
     </div>
+    <div class="column-12 FR">
+      <h1>Ceux que j'ai aimé</h1>
+      <p>
+        Vous trouverez ci-dessous une sélection des films, séries et livres qui m'ont le plus plu. J'ai créé ces listes afin de recommander mes coups de coeur à mes amis. Pour les films et les séries, les données proviennent de <a href="http://www.imdb.com/">IMDb</a>. Je recommande également <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> par Kevin Wuhoo qui permet de visualiser les notes des séries par épisode et ainsi évaluer la qualité des séries au cours du temps. IMDb est en anglais, je changerai peut-être pour allocine pour les visiteurs francophone. Concernant les livres, comme quasiment tous ceux que j'ai lu étaient des éditions française, pas toujours répertoriées sur <a href="https://books.google.com/" target="_blank">Google-Books</a>, j'ai finalement choisi d'utiliser <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
+      </p>
+      <p>
+        Vous pouvez télécharger le dossier github de cette page internet et l'utiliser tel quel pour faire vos propres listes. Pour ajouter un élément à la base de données vous pouvez utiliser <a href="#modal-one">le formulaire</a> que j'ai mis au point. Je prévois d'implémenter l'utilisation de filtres pour n'afficher que certains genres de films et séries et chercher un livre par mots-clés. J'aimerai aussi pouvoir comparer deux jeux de données pour mettre en valeur les éléments qui ne sont pas communs aux deux fichiers.
+      </p>
+    </div>
   </div>
   <div class="row">
     <div class="column-12">
-      <h2 class="active">Films</h2><h2>Series</h2><h2>Books</h2>
+      <h2 class="ENG active">Films</h2><h2 class="ENG">Series</h2><h2 class="ENG">Books</h2>
+      <h2 class="FR active">Films</h2><h2 class="FR">Séries</h2><h2 class="FR">Livres</h2>
     <button class="round-button"><img src="../assets/img/redo.svg" style="width:25px;height:25px;"></button>
         
       <div class="row plot"></div>
@@ -85,6 +101,7 @@
 <!-- ----------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------- -->
 
+<script src="../assets/main.js"></script>
 <script type="text/javascript">
 
 
@@ -93,11 +110,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///                                                          Main Javascript ///
 ////////////////////////////////////////////////////////////////////////////////
-
-  // var data = {"films":["tt4698684", "tt5700672", "tt0227984", "tt0080455", "tt0091763", "tt0405094", "tt0116282", "tt1185616", "tt0365748", "tt0289043", "tt1465522", "tt0418763", "tt0208092", "tt0120735", "tt1032755", "tt0375912", "tt0425210", "tt0780536", "tt0373469", "tt0183649", "tt0460791", "tt0464913", "tt1167660", "tt0109440", "tt0321715", "tt0338828", "tt0456123", "tt0115658", "tt0442207", "tt2853614"],
-  //             "series":["tt0903747", "tt0487831", "tt0262150", "tt4574334", "tt4288182", "tt2802850", "tt0995832", "tt0306414"],
-  //             "books":["40261", "230523", "280646", "398449", "508580", "312445", "373613", "657585", "446402", "495573", "564128"]};
-
 
     var types = ["films", "series", "books"]
 
