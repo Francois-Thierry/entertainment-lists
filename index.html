@@ -21,7 +21,7 @@
   <div class="modal-dialog">
     <a href="#close" class="btn-close">×</a>
     <div class="row">
-      <div class="column-11 ENG">
+      <div class="column-11 EN">
         <h1 style="margin-top:1.5em;">Update dataset</h1>
         <p>
         This page is a convenient helper to update the entertaining-things dataset. You can update films and series by pasting their IMdB id ("ttXXXXXXX" in the address bar of a film or a TV-show on IMdB) and books by pasting their Babelio id (last numbers in the address bar of a book on Babelio). Click on the button to update with the current item if it is well formated and if it doesn't exist yet. Due to security restrictions in Javascript the most convenient way to write the dataset to a local file is through a download. When your are finished updating the dataset you can download the data to a new file (you have to manually replace the old one). A empty dataset file contains the text {"films":[], "series":[], "books":[]}.
@@ -66,13 +66,13 @@
 <div class="wrapper"> 
   <div class="header"></div>
   <div class="row">
-    <div class="column-12 ENG">
+    <div class="column-12 EN">
       <h1>Things that I liked</h1>
       <p>
         Below you will find lists of films, series and books that I have watched and read and that I liked. I made those lists for my friends as I wanted to share my very favorite. For films and series, I choose to parse <a href="http://www.imdb.com/">IMDb</a>. I also recommend <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> by Kevin Wuhoo that allows to visualize the IMDb ratings of tv-shows by episode and therefore gives useful insights into the quality of series throughout time. Movies informations are from their English version but I am sure that you can find them (as I did) in original version. For the books I had trouble finding some books and editions on the <a href="https://books.google.com/" target="_blank">Google-Books</a> API so I use <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
       </p>
       <p>
-        I also wrote a convenient modal form to <a href="#modal-one">update the dataset</a>. This web page can be downloaded and used as an database application. In the future, I want to filter and export the data (genres and year) and to compare two different datasets to highlight differences.
+        You can download the github repository for this web page and use it as-is to do your own lists. You can use <a href="#modal-one">the modal form</a> that I implemented to add an item to your dataset. I plan to filter the films and series by genre and to search books based on keywords. I would also like to compare two datasets to highlight elements that are not in both datasets. 
       </p>
     </div>
     <div class="column-12 FR">
@@ -81,13 +81,13 @@
         Vous trouverez ci-dessous une sélection des films, séries et livres qui m'ont le plus plu. J'ai créé ces listes afin de recommander mes coups de coeur à mes amis. Pour les films et les séries, les données proviennent de <a href="http://www.imdb.com/">IMDb</a>. Je recommande également <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> par Kevin Wuhoo qui permet de visualiser les notes des séries par épisode et ainsi évaluer la qualité des séries au cours du temps. IMDb est en anglais, je changerai peut-être pour allocine pour les visiteurs francophone. Concernant les livres, comme quasiment tous ceux que j'ai lu étaient des éditions française, pas toujours répertoriées sur <a href="https://books.google.com/" target="_blank">Google-Books</a>, j'ai finalement choisi d'utiliser <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
       </p>
       <p>
-        Vous pouvez télécharger le dossier github de cette page internet et l'utiliser tel quel pour faire vos propres listes. Pour ajouter un élément à la base de données vous pouvez utiliser <a href="#modal-one">le formulaire</a> que j'ai mis au point. Je prévois d'implémenter l'utilisation de filtres pour n'afficher que certains genres de films et séries et chercher un livre par mots-clés. J'aimerai aussi pouvoir comparer deux jeux de données pour mettre en valeur les éléments qui ne sont pas communs aux deux fichiers.
+        Vous pouvez télécharger le dossier github de cette page internet et l'utiliser tel-quel pour faire vos propres listes. Pour ajouter un élément à la base de données vous pouvez utiliser <a href="#modal-one">le formulaire</a> que j'ai mis au point. Je prévois d'implémenter l'utilisation de filtres pour n'afficher que certains genres de films et séries et chercher un livre par mots-clés. J'aimerai aussi pouvoir comparer deux jeux de données pour mettre en valeur les éléments qui ne sont pas communs aux deux fichiers.
       </p>
     </div>
   </div>
   <div class="row">
     <div class="column-12">
-      <h2 class="ENG active">Films</h2><h2 class="ENG">Series</h2><h2 class="ENG">Books</h2>
+      <h2 class="EN active">Films</h2><h2 class="EN">Series</h2><h2 class="EN">Books</h2>
       <h2 class="FR active">Films</h2><h2 class="FR">Séries</h2><h2 class="FR">Livres</h2>
     <button class="round-button"><img src="../assets/img/redo.svg" style="width:25px;height:25px;"></button>
         
