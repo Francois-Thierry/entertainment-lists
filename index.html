@@ -126,7 +126,7 @@
       for (var i in fourItems) {
         var queryUrl = "https://cors-anywhere.herokuapp.com/"+fourItems[i].image;
         // remove "CR" tag to get uncropped images from IMdB
-        queryUrl = queryUrl.replace("CR");
+        queryUrl = queryUrl.replace("CR", "");
         container.append('<a target="_blank" href="'+fourItems[i].ref+'"><img class="poster" src="'+queryUrl+'" crossOrigin="Anonymous"></a>');
       }
     }
@@ -134,6 +134,7 @@
     $("h2").click(function(){
       $("h2").removeClass("active");
       typeOnFocus = $(this).text().toLowerCase();
+      typeOnFocus = typeOnFocus.replace("é", "e").replace("livres", "books");
       $(this).addClass("active");
       var top = $("h2").offset().top-15;
       scrollTo(top, 1500);
