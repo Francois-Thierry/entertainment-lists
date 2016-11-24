@@ -1,12 +1,26 @@
 
 .poster {
   padding: 1em;
+  padding-top: 0;
   background: white;
+}
+
+.list:last-child {
+  padding-bottom: 0.75em;
+}
+
+.row.plot {
+  text-align: center;
+}
+
+.row.plot > * {
+  float: none;
 }
 
 .row.plot a:nth-child(7), .row.plot a:nth-child(8) {
   display: none;
 }
+
 
 h2 {
   display: inline-block;
@@ -15,16 +29,17 @@ h2 {
   color: #9E9E9E;
 }
 
+
 h2.active {
   color: #212121;
 }
 
-.round-button {
+/*.round-button {
   position: absolute;
   bottom: 0;
   right: 0;
   transform: translate(-10px, -10px);
-}
+}*/
 
 #downloadLink a {
   font-size: 5em;
@@ -39,14 +54,14 @@ h2.active {
 }
 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 @media (min-width:481px) {
-  .round-button {
-    position: static;
-    right: 0;
-    transform: translate(5px, 30px);
-  }
   .poster {
     width: 50%;
   }
+/*  .round-button {
+    position: static;
+    right: 0;
+    transform: translate(5px, 30px);
+  }*/
 }
 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 @media (min-width:641px) {

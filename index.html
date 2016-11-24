@@ -21,7 +21,7 @@
 <div class="modal" id="modal-one">
   <div class="modal-dialog">
     <a href="#close" class="btn-close">×</a>
-    <div class="row">
+    <div class="wrapper">
       <div class="column-11 EN">
         <h1 style="margin-top:1.5em;">Update dataset</h1>
         <p>
@@ -70,30 +70,71 @@
     <div class="column-12 EN">
       <h1>Things that I liked</h1>
       <p>
-        Below you will find lists of films, series and books that I have watched and read and that I liked. I made those lists for my friends as I wanted to share my very favorite. For films and series, I choose to parse <a href="http://www.imdb.com/">IMDb</a>. I also recommend <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> by Kevin Wuhoo that allows to visualize the IMDb ratings of tv-shows by episode and therefore gives useful insights into the quality of series throughout time. Movies informations are from their English version but I am sure that you can find them (as I did) in original version. For the books I had trouble finding some books and editions on the <a href="https://books.google.com/" target="_blank">Google-Books</a> API so I use <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
-      </p>
-      <p>
-        You can download the github repository for this web page and use it as-is to do your own lists. You can use <a href="#modal-one">the modal form</a> that I implemented to add an item to your dataset. I plan to filter the films and series by genre and to search books based on keywords. I would also like to compare two datasets to highlight elements that are not in both datasets. 
+        Below you will find lists of films, series and books that I have watched and read and that I liked. I made those lists for my friends as I wanted to share my very favorite. For films and series, I choose to parse <a href="http://www.imdb.com/">IMDb</a>. For the books I had trouble finding some books and editions on the Google-Books API so I use <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
+        You can download the github repository for this web page and use it as-is to do your own lists. You can use <a href="#modal-one">the modal form</a> that I implemented to add an item to your dataset.
       </p>
     </div>
     <div class="column-12 FR">
       <h1>Ceux que j'ai aimé</h1>
       <p>
-        Vous trouverez ci-dessous une sélection des films, séries et livres qui m'ont le plus plu. J'ai créé ces listes afin de recommander mes coups de coeur à mes amis. Pour les films et les séries, les données proviennent de <a href="http://www.imdb.com/">IMDb</a>. Je recommande également <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> par Kevin Wuhoo qui permet de visualiser les notes des séries par épisode et ainsi évaluer la qualité des séries au cours du temps. IMDb est en anglais, je changerai peut-être pour allocine pour les visiteurs francophone. Concernant les livres, comme quasiment tous ceux que j'ai lu étaient des éditions française, pas toujours répertoriées sur <a href="https://books.google.com/" target="_blank">Google-Books</a>, j'ai finalement choisi d'utiliser <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
-      </p>
-      <p>
-        Vous pouvez télécharger le dossier github de cette page internet et l'utiliser tel-quel pour faire vos propres listes. Pour ajouter un élément à la base de données vous pouvez utiliser <a href="#modal-one">le formulaire</a> que j'ai mis au point. Je prévois d'implémenter l'utilisation de filtres pour n'afficher que certains genres de films et séries et chercher un livre par mots-clés. J'aimerai aussi pouvoir comparer deux jeux de données pour mettre en valeur les éléments qui ne sont pas communs aux deux fichiers.
+        Vous trouverez ci-dessous une sélection des films, séries et livres qui m'ont le plus plu. J'ai créé ces listes afin de recommander mes coups de coeur à mes amis. Pour les films et les séries, les données proviennent de <a href="http://www.imdb.com/">IMDb</a>. Concernant les livres, comme quasiment tous ceux que j'ai lu étaient des éditions française, pas toujours répertoriées sur Google-Books, j'ai finalement choisi d'utiliser <a href="http://www.babelio.com/" target="_blank">Babelio</a>.
+        Vous pouvez télécharger le dossier github de cette page internet et l'utiliser tel-quel pour faire vos propres listes. Pour ajouter un élément à la base de données vous pouvez utiliser <a href="#modal-one">le formulaire</a> que j'ai mis au point.
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-top:1em;">
     <div class="column-12">
       <h2 class="EN active">Films</h2><h2 class="EN">Series</h2><h2 class="EN">Books</h2>
       <h2 class="FR active">Films</h2><h2 class="FR">Séries</h2><h2 class="FR">Livres</h2>
-    <button class="round-button"><img src="../assets/img/redo.svg" style="width:25px;height:25px;"></button>
+    <!-- <button class="round-button"><img src="../assets/img/redo.svg" style="width:25px;height:25px;"></button> -->
         
-      <div class="row plot"></div>
+      <div class="row plot">
+   
+          <div class="row-action column-12">
+            <img src="../assets/img/italic.svg" class="infos-action">
+            <img src="../assets/img/sync.svg" class="refresh-action">
+          </div>
 
+          
+        <p class="column-11 caption infos EN">
+          <b>Infos :</b>
+          A random selection of items from the dataset. Click on the refresh button to display another selection or on an image to open the corresponding IMDb or Babelio page.
+        </p>
+        <p class="column-11 caption infos FR">
+          <b>Infos :</b>
+          Sélection aléatoire d'éléments du jeu de données. Cliquez sur le bouton rafraichir pour afficher une autre sélection ou cliquez sur une image pour ouvrir la page IMDb ou Babelio correspondante.
+        </p>
+
+        <div class="list">
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <div class="detailsSection column-12">
+    <h3 class="EN">Details</h3>
+    <h3 class="FR">Détails</h3>
+    <div class="details">
+      <div class="line-separator"></div>
+      <div class="EN column-12">      
+        <p>
+          I choose to use IMDb because the API is accessible and has a lot of content. Movies informations are from their English version but I am sure that you can find them (as I did) in original version.
+           I also recommend <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> by Kevin Wuhoo that allows to visualize the IMDb ratings of tv-shows by episode and therefore gives useful insights into the quality of series throughout time.
+        </p>
+        <p>
+          I plan to implement filtering the films and series by genre and to search books based on keywords. I would also like to compare two datasets to highlight elements that are not in both datasets. I also want to have a book resumee when possible and to gather different volumes in a single book element.
+        </p>
+      </div>
+      <div class="FR column-12">      
+        <p>
+          J'ai choisi d'utiliser IMDb car l'API est accessible et qu'elle contient plus d'éléments qu'Allocine. Les informations IMDb sont en anglais mais je suis sûr que vous pourrez les trouver (comme je l'ai fait) en version originale. Je changerai peut-être pour Allocine pour les visiteurs francophone.
+          Je recommande également <a href="http://graphtv.kevinformatics.com" target="_blank">graphtv</a> par Kevin Wuhoo qui permet de visualiser les notes des séries par épisode et ainsi évaluer la qualité des séries au cours du temps.
+        </p>
+        <p>
+          Je prévois d'implémenter des filtres pour n'afficher que certains genres de films et séries et chercher un livre par mots-clés. J'aimerai aussi pouvoir comparer deux jeux de données pour mettre en valeur les éléments qui ne sont pas communs aux deux fichiers. Je voudrais également pouvoir avoir un résumé des livres si possible et ranger les différents volumes dans un seul élément livre.
+        </p>
+      </div>
+      <div class="line-separator"></div>
     </div>
   </div>
   <div class="footer"></div>
@@ -103,178 +144,7 @@
 <!-- ----------------------------------------------------------------------- -->
 
 <script src="../assets/main.js"></script>
-<script type="text/javascript">
+<script src="entertainment-lists.js"></script>
 
-
-  $.getJSON("entertaining_things.json", function(data) {
-
-////////////////////////////////////////////////////////////////////////////////
-///                                                          Main Javascript ///
-////////////////////////////////////////////////////////////////////////////////
-
-    var types = ["films", "series", "books"]
-
-    var typeOnFocus = "films";
-    updateType();
-
-    function updateType() {
-      var container = $(".row.plot");
-      // keep paper plot container height
-      $(".row.plot").css("min-height", $(".row.plot").height());
-      container.html("");
-      var fourItems = shuffle(data[typeOnFocus]).slice(0, 8);
-      for (var i in fourItems) {
-        var queryUrl = "https://cors-anywhere.herokuapp.com/"+fourItems[i].image;
-        // remove "CR" tag to get uncropped images from IMdB
-        queryUrl = queryUrl.replace("CR", "");
-        container.append('<a target="_blank" href="'+fourItems[i].ref+'"><img class="poster" src="'+queryUrl+'" crossOrigin="Anonymous"></a>');
-      }
-    }
-
-    $("h2").click(function(){
-      $("h2").removeClass("active");
-      typeOnFocus = $(this).text().toLowerCase();
-      typeOnFocus = typeOnFocus.replace("é", "e").replace("livres", "books");
-      $(this).addClass("active");
-      var top = $("h2").offset().top-15;
-      scrollTo(top, 1500);
-      updateType();
-    })
-
-    $(".round-button").click(function(){
-      var top = $("h2").offset().top-15;
-      scrollTo(top, 1000);
-      updateType();
-    })
-
-
-////////////////////////////////////////////////////////////////////////////////
-///                                              Javascript for Modal Window ///
-////////////////////////////////////////////////////////////////////////////////
-
-    function checkItemExistence(data, id) {
-      return data.filter(
-        function(data){if (data.id == id){return data.title;}}
-      );
-    }
-
-    // update button clicked!
-    $(".button").click(function(){
-      // reset output informations
-      $("output").html("")
-      // set-up valid fields array container
-      var queryUrls = [];
-      // iterate the form fields
-      for (i=0; i < $(".form-group")["length"]; i++) {
-        // if a field has a value (else do nothing)
-        if ($(".form-group input")[i].value) {
-          // extract the id the user entered
-          var id = $(".form-group input")[i].value
-          // get the type of id from the field label
-          var type = $(".form-group label")[i].innerHTML;
-          // check if the id already exists in the database
-          var existenceCheck = checkItemExistence(data[type.toLowerCase()], $("input")[i].value);
-          // if it doesn't exits
-          if (existenceCheck.length == 0) {
-            var queryUrl = "";
-            // differenciate films and series that are on IMdB and books that are on Babelio
-            if (type != "Books") {
-              // check if the id is a valid IMdB format
-              if ($("input")[i].value.match(/^tt\d{7}$/)) {
-                // IMDb url for the item id 
-                queryUrl = "http://www.imdb.com/title/"+$("input")[i].value;
-                queryUrls.push("https://cors-anywhere.herokuapp.com/"+queryUrl);
-              } else {
-                $("output").append(type+" input isn't a valid IMdB id</br>");
-                queryUrls.push("");
-              }
-            } else {
-              // check if the id valid is a valid Babelio format
-              if ($("input")[i].value.match(/^\d+$/)) { 
-                // Babelio url for the item id
-                queryUrl = "http://www.babelio.com/livres/*/"+$("input")[i].value;
-                queryUrls.push("https://cors-anywhere.herokuapp.com/"+queryUrl);
-              } else {
-                $("output").append("Books input isn't a valid Babelio id</br>");
-                queryUrls.push("");
-                // return;
-              }
-            }
-            // if queryUrl is defined the current id has the approriate format
-            if (queryUrl) {
-              $.ajax({
-                type: 'GET',
-                datatype: 'text',
-                url: "https://cors-anywhere.herokuapp.com/"+queryUrl,
-                // queryUrl is valid and we have a response from IMdB or Babelio
-                success: function(response) {
-                  // actual index of the field under consideration
-                  var i = queryUrls.indexOf(this.url);
-                  // actual type of data
-                  var type = $(".form-group label")[i].innerHTML.toLowerCase();
-                  // prepare the item
-                  var item = {"id":$(".form-group input")[i].value};
-                  // get the item title
-                  var rawTitle = $(response).filter("meta[property='og:title']").attr("content");
-                  // if we have a valid response
-                  if (rawTitle) {                     
-                    // get the source of the poster image
-                    var imgSrc = $(response).filter("meta[property='og:image']").attr("content");
-                    // get the reference to the IMdB or Babelio webpage
-                    var linkUrl = $(response).filter("meta[property='og:url']").attr("content");
-                    // adapt properties to differences between IMdB and Babelio
-                    if (type != "books") {
-                      // get the actual title of the item
-                      var title = rawTitle.split(" (")[0];
-                      // add year of first diffusion to the item properties
-                      item["year"] = rawTitle.match(/\(.*(\d{4}).*\)/)[1];
-                      // prepare genres keywords
-                      var genres = [];
-                      // get the item genres from the IMdB response
-                      $(".itemprop[itemprop='genre']", $(response)).each(function(){genres.push(this.innerHTML)});
-                      // add it to the item properties
-                      item["genres"] = genres;
-                    } else {
-                        // get the actual title of the item
-                        var title = rawTitle.split(" - ")[0];
-                        // find book author
-                        var rawAuthor = $(".livre_auteurs", $(response)).attr("href");
-                        // add book author to the item properties
-                        item["author"] = rawAuthor.split("/")[2].split("-").join(" ");
-                        // get the item genre keywords
-                        var keywords = $(response).filter("meta[name='keywords']").attr("content");
-                        // add it to the item properties
-                        item["keywords"] = keywords.split(",").slice(0, -1);
-                      }
-                    // update item properties
-                    item["title"] = title;
-                    item["ref"] = linkUrl;
-                    item["image"] = imgSrc;
-                    // add the item to the dataset
-                    data[type].push(item);
-                    // output addition
-                    $("output").append(title+" added to the dataset</br>");
-                    // reconstruct the data file to dowload
-                    downloadFile(data);
-                  } else {
-                      $("output").append("it seems that this book? doesn't exist</br>");
-                  }
-                },
-                error: function() {console.log("ERROR with "+queryUrl);}
-              });
-            }
-          } else {
-            $("output").append(existenceCheck[0].title+" already exists</br>");
-            queryUrls.push("");
-          }
-        } else {
-            queryUrls.push("");
-          }
-      }
-    });
-
-  });
-
-</script>
 </body>
 </html>
